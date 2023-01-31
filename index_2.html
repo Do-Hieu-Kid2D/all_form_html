@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn form</title>
+</head>
+<style>
+    h3 {
+        background-color: yellowgreen;
+    }
+</style>
+
+<body>
+    <h1>Thẻ form để nhận lại dữ liệu, thu thập thông tin từ người dùng </h1>
+    <p>thu thập thông tin từ user và gửi lên sever là trang đc định ngĩa bởi thuộc tính action </p>
+    <b>Các thuộc tính của form HTML:</b>
+    <dl>
+        <h2 style="background-color: rgb(20, 243, 76);">Việc gửi đi k phụ thuộc vào mk input mà cứ cái nào có name là nó
+            gửi đi <br> vì nó gửi theo <span style="color: blue;"> name: value</span> </h2>
+        <dt><b>action:</b></dt>
+        <dd>Xác định hành động khi biểu mẫu được gửi đi! <br>
+            Thông thường, dữ liệu biểu mẫu được gửi đến một tệp trên máy chủ khi người dùng nhấp vào nút gửi.
+            <br><b>Nếu action trống thì hành động được đặt ở trang web hiện tại! </b>
+        </dd>
+        <dt><b>target:</b></dt>
+        <dd>Thuộc tính mục tiêu! chỉ định nơi phản hồi khi nhận biểu mẫu
+            <br> _blank _self _parent _top framename ( mặc định là: _self)
+
+        </dd>
+        <dt><b>method: </b></dt>
+        <dd>Thuộc tính method chỉ định phương thức HTTP sẽ được sử dụng khi gửi dữ liệu biểu mẫu.
+            <br> có thể là <b>get</b> hoặc <b>post</b>!
+            <br> Get là gửi qua url và nó k an toàn với những thông tin nhạy cảm!
+            <br> Post nối dữ liệu đc gửi vào trong thân html và nó an toàn
+            <br> ... nhiều khác biệt nữa... ( Luôn sử dụng POST nếu dữ liệu biểu mẫu chứa thông tin cá nhân hoặc nhạy
+            cảm!)
+        </dd>
+        <dt><b>autocomplete</b></dt>
+        <dd>thuộc tính: tự động điền: chỉ định xem một biểu mẫu nên bật hay tắt tính năng tự động hoàn thành.
+            Khi bật tính năng tự động điền,
+            trình duyệt sẽ tự động hoàn tất các giá trị dựa trên các giá trị mà người dùng đã nhập trước đó.</dd>
+        <dt><b>novalidate</b></dt>
+        <dd>là một thuộc tính boolean. <=> true or false <br>
+                hi xuất hiện, nó chỉ định rằng dữ liệu biểu mẫu (đầu vào) không được xác thực khi được gửi.</dd>
+    </dl>
+
+    <h1 style="background-color: yellow;">TRIỂN KHAI NHƯ THẾ NÀO?</h1>
+    <form action="">
+        <h3>đoạn text không xuống dòng</h3>
+        <label for="vanban">văn bản (text):</label>
+        <input type="text" id="vanban">
+
+        <br>
+        <hr>
+        <h3>label</h3>
+        <p><b>label là 1 nhãn</b> để chỉ định những thứ với nhau?! <br>
+            thuộc tính for của nhãn thì trùng với id của input mà ta muốn liên kết </p>
+        <br>
+        <hr>
+        <h3>type radio</h3>
+        <p> <b>type radio</b> dùng để người dùng chọn 1 lựa chọn hạn chế:
+        </p>
+        <br> Chọn 1 ngôn ngữ bạn yêu thích: <br>
+        <input type="radio" id="html" name="ngon_ngu" value="HTML">
+        <label for="html">HTML</label><br>
+        <input type="radio" id="css" name="ngon_ngu" value="CSS">
+        <label for="css">CSS</label><br>
+        <input type="radio" name="ngon_ngu" id="javascript" value="JAVASCRIPT">
+        <label for="javascript">JAVASCRIPT</label>
+        <br> <br>
+        <b>Bạn có yêu Hà không?</b> <br>
+        <input type="radio" name="yeuha" id="co" value="yes">
+        <label for="co">Yes</label>
+        <input type="radio" name="yeuha" id="ko" value="no">
+        <label for="ko">No</label>
+        <br>
+        <hr>
+        <h3>checkbox - hộp kiểm </h3>
+        <p>dùng để chọn nhiều - có hoặc không với 1 lựa chon!</p>
+        <b>Bạn đi phương tiện nào?</b><br>
+        <input type="checkbox" name="phuong_tien" id="phuong_tien1" value="xe_dap">
+        <label for="phuong_tien1">xe đạp</label><br>
+        <input type="checkbox" name="phuong_tien" id="phuong_tien2" value="xe_o_to">
+        <label for="phuong_tien1">ô tô</label><br>
+        <input type="checkbox" name="phuong_tien" id="phuong_tien3" value="may_bay">
+        <label for="phuong_tien1">máy bay</label>
+        <br>
+        <hr>
+        <h3>Thuộc tính: name</h3>
+        <p>Lưu ý mỗi trường đầu vào phải có một thuộc tính <b> name </b> được gửi. <br>
+            Nếu thuộc tính <b>name bị bỏ qua</b>, giá trị của trường đầu vào sẽ <b>không được gửi đi.</b></p>
+        <br>
+        <hr>
+        <h3>Select</h3>
+        <p>Phần select tử xác định danh sách thả xuống: với các option thuộc tính name đặt trong tag select
+            <br> theo mặc định chọn đầu là mục đầu tiên ta thêm <b>selected</b> cho cái ta muốn mặc định
+            <br> thêm <b>size</b> để hiện bao nhiêu cái một lúc! <b>multiple</b>giữ ctrl để đc lựa chọn nhiều
+        </p>
+        <label for="do_uong"><b>Bạn muốn uống gì?</b></label>
+        <br>
+        <select name="do_uong" id="do_uong">
+            <option value="nuoc_loc">Nước lọc</option>
+            <option value="cocacola">cocacola</option>
+            <option value="Sting" selected>Sting</option>
+
+        </select>
+        <hr>
+        <br>
+        <h3>textarea (Nhập nhiều dòng)</h3>
+        <p>Đơn giản vì trong textarea nó có name thì summid đi là oke </p>\
+        <b>Textarea 5dong 55cot</b> <br>
+        <textarea name="message" rows="5" cols="55">
+            Ghi thông điệp vào đây oke! 
+            </textarea>
+        <hr>
+        <br>
+        <h3>Button -> nút bấn để gọi js</h3>
+        <p>và nó có nhiều công dụng qua onclick và dù nó là button rồi nhưng vẫn nên chỉ rõ type của nó là: button! </p>
+        <button style="color: red; background-color: beige;" type="button" onclick="alert('Dkid leanr HTML')">
+            click me! </button>
+        <hr>
+        <br>
+        <h3>phần tử fieldset và legend </h3>
+        <p>Phần fieldset tử được sử dụng để nhóm các dữ liệu liên quan trong một biểu mẫu.
+            <b>fieldset</b> tức là tạo ra 1 biểu mẫu -> đơn giản là 1 cái viền! <br>
+            Phần legend tử xác định chú thích cho fieldset.
+            <b>legend</b> Tức là tên của biểu mẫu đó! tên cái viền đc nhóm chung lại!
+        </p>
+
+        <fieldset>
+            <legend>Cho tôi biết họ tên bạn!</legend>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname"><br><br>
+            <input type="submit" value="Submit">
+        </fieldset>
+        <hr>
+        <br>
+        <h3>Phần tử datalist</h3>
+        <p>Nó giống select nhưng cái này kiểu có thể là gợi ý cho người ta nhập tay
+            hoặc cũng có thể là chọn luôn! <br>
+            1 input nhận đầu vào có thuộc tính list đc đặt trước, thẻ datalist sẽ có các option để chọn và id của nó
+            trùng với list của input! <b> >Nhớ là input phải có name </b></p>
+        <b>Bạn chọn trình duyệt nào? </b> <br>
+        <input list="browsers" name="browsers">
+        <datalist id="browsers">
+            <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+        </datalist>
+        <br>
+        <hr>
+        <h3>Phần tử output </h3>
+        <p> output: đại diện cho kết quả của phép tính (giống như phép tính được thực hiện bởi tập lệnh).
+            <br> <b> CHƯA HIỂU OUTPUT LÀ GÌ!?</b>
+        </p>
+
+    </form>
+
+    <h1 style="background-color: aqua;">Các type của thẻ input </h1>
+    <form action="">
+        <p><b>1. Mặc định của input ở dạng text (văn bản)! -> văn bản 1 dòng! <span
+                    style="background-color: blueviolet;">Đã
+                    thực hành rồi</span></b></p>
+        <h3>2. Loại đầu vào mật khẩu:(password)</h3>
+        <label for="mat_kau"><b>Nhập mật khẩu bro:</b></label>
+        <input type="password" name="mat_khau" id="mat_khau">
+        <hr>
+        <br>
+        <h3>3.Loại nút bấm để gửi form cho sever!: submit </h3>
+        <p>trình xử lý biểu mẫu được chỉ định trong thuộc tính của biểu mẫu action : <br>
+            loại của nó là submit và các thuộc tính khác chưa hiểu</p>
+        <input type="submit" name="ngu" id="done">
+        <br>
+        <hr>
+        <h3>4.NÚT dễ hiểu tương tự : reset!(trả về form như mới)</h3>
+        <input type="reset" name="" id="">
+        <hr><br>
+        <h3>5. Đầu vào radio( 1 nút radio) => chỉ dc phép chọn 1 trong các lựa chọn!</h3>
+        <p>name thì chung để gửi đi! id thì chung với cái for của cái label của nó! value là cái name nhận!</p>
+        <label for="gioi_tinh"><b>Chọn giới tính:</b></label> <br>
+        <input type="radio" name="gioi_tinh" id="gioi_tinh_nam" value="Nam">
+        <label for="gioi_tinh_nam">Nam</label><br>
+        <input type="radio" name="gioi_tinh" id="gioi_tinh_nu" value="Nữ">
+        <label for="gioi_tinh_nu">Nữ</label>
+        <br>
+        <hr>
+        <h3>6. Checkbox hộp kiểm -> chọn 1 - chọn nhiều - yes/no? !</h3>
+        <p>Khác với radio là type checkbox và cái name của nó k cần trùng nhau! </p>
+        <p><b>Chọn môn thể thao:</b></p>
+        <input type="checkbox" name="the_thao1" id="da_bong" value="da_bong">
+        <label for="da_bong">Đá bóng</label> <br>
+        <input type="checkbox" name="the_thao2" id="cau_long" value="cau_long">
+        <label for="cau_long">Cầu lông</label> <br>
+        <input type="checkbox" name="the_thao3" id="boi" value="boi">
+        <label for="boi">Bơi</label> <br>
+        <br>
+        <hr>
+        <h3>7.Nút(button) để xác định công việc chăng!</h3>
+        <input type="button" value="click me!" onclick="alert('Hello ba gia!')">
+        <br>
+        <hr>
+        <h3>8.Loại đầu vào Màu sắc </h3>
+        <p>The input type color được sử dụng cho các trường đầu vào nên chứa một màu.</p>
+        <p>Thế là nó đưa ra bảng màu -> mày thích chọn màu nào thì nó gửi về sever thôi! </p>
+        <label for="mau_sac"><b>Chọn màu bro thích:</b></label>
+        <input type="color" name="Mau_bro_like:" id="mau_sac">
+        <br>
+        <hr>
+        <h3>9. Loại đầu vào Ngày</h3>
+        <p>Nó dùng để chọn ngày thôi! nên ví dụ chọn ngày sinh nhật đi:
+            - bạn cũng có thể giới hạn min-max cho ngày tháng muốn nhận!</p>
+        <label for="sinh nhat"><b>Bạn sinh ngày:</b></label>
+        <input type="date" name="Ngay_sinh_nhat" id="sinh nhat">
+        <br>
+        <hr>
+        <h3>9. Loại đầu vào Datetime-local </h3>
+        <p>định trường nhập ngày và giờ, không có múi giờ.
+            <br> Tùy thuộc vào sự hỗ trợ của trình duyệt, bộ chọn ngày có thể hiển thị trong trường nhập liệu.
+            <br><b>Nó có thể để lấy thời gian giờ phút giây - ngày tháng năm</b>
+        </p>
+        <label for="now_hours"><b>Giờ hiện tại:</b></label>
+        <input type="datetime-local" name="Gio hien tai:" id="now_hours">
+        <br>
+        <hr>
+        <h3>10. Loại đầu vào datetime -> chỉ có ngày tháng năm - và tự nhập bằng tay! </h3>
+        <label for="nhap_datetime"><b>Nhập ngày tháng:</b></label>
+        <input type="datetime" name="ngay_thang:" id="nhap_datetime">
+        <br>
+        <hr>
+        <h3>11. Loại đầu vào Email</h3>
+        <p>Để kiểm tra đầu vào mà html đã sử lý hộ rồi! - nhưng nó chỉ check đến có @ hay k thôi </p>
+        <label for="email"><b>Nhập email bro:</b></label>
+        <input type="email" id="email" name="email_bro:">
+        <br>
+        <hr>
+        <h3>12. Loại hình ảnh đầu vào </h3>
+        <p>Định input type="image nghĩa một hình ảnh như một nút gửi. <br>
+            Đường dẫn đến hình ảnh được chỉ định trong src .
+            <br> <b>Và khi nhấp vào ảnh thì định nghĩa trong alt và mặc định là submit ????</b>
+        </p>
+        <input type="image" src="ha_hieu_yeu.jpg" alt="submit" width="66">
+        <hr>
+        <br>
+        <h3>13. loại đầu vào ẨN</h3>
+        <p>Loại đầu vào này k đc hiển thị cho người nhập trong form
+            nhưng nó vẫn đc gửi đi mà k cho người nhập đc sủa đổi <br>
+            <b>Nói chung là khó hiểu -> k biết ! trường ẩn nè:ẩn rồi thì nhìn làm sao dc(::D)</b>
+        </p>
+        <input type="hidden" id="custId" name="custId" value="3487">
+
+        <br>
+        <hr>
+        <h3>14. Loại đầu vào Tháng</h3>
+        <p>Cho input type="month"> cho phép người dùng chọn tháng và năm.
+            <br> Tùy thuộc vào sự hỗ trợ của trình duyệt, bộ chọn ngày có thể hiển thị trong trường nhập liệu.
+            <b>Nhìn phèn vl</b>
+        </p>
+        <label for="thang_nam"><b>Nhập đc tháng và năm:</b></label>
+        <input type="month" name="thang_va_nam" id="thang_nam">
+        <br>
+        <hr>
+        <h3>15. Loại đầu vào Số</h3>
+        <p> input type="number"> Định nghĩa một trường nhập số .
+            Bạn cũng có thể đặt giới hạn về số nào được chấp nhận.</p>
+        <label for="chon_so">Bro chỉ chọn dc từ 1->5 thoi: </label>
+        <input type="number" name="So_dc_chon:" id="chon_so" min="1" max="5" value="1">
+        <br>
+        <hr>
+        <h3>16. Phạm vi loại đầu vào => là cái thanh trượt đó!</h3>
+        <p> input type="range"> Xác định điều khiển để nhập một số có giá trị
+            chính xác không quan trọng (như điều khiển thanh trượt).
+            Phạm vi mặc định là từ 0 đến 100. Tuy nhiên, bạn có thể đặt giới hạn
+            về số nào được chấp nhận với các thuộc tính min, maxvà step:</p>
+
+        <label for="volume">Áp dụng vào chỉnh Volume từ 0 ->50(step =5):</label>
+        <input type="range" id="vol" name="volume" min="0" max="50" step="5">
+        <br>
+        <hr>
+        <h3>17. Loại đầu vào Tìm kiếm</h3>
+        <p>Ủa alo ghi cái tìm vào đó nó gửi về sever chả khác gì trường text ??// la sao vậy mọi người!!! </p>
+        <label for="tim">Tìm kiếm:</label>
+        <input type="search" id="tim" name="tim_kiem:">
+        <br>
+        <hr>
+        <h3>18. Loại đầu vào Điện thoại </h3>
+        <p> input type="tel"> được sử dụng cho các trường đầu vào phải chứa số điện thoại.
+            <br> cái hạn chế hay kiểm tra đầu vào chưa biết! (pattern)
+        </p>
+        <label for="phone">Số điện thoại bro:</label>
+        <input type="tel" id="phone" name="phone_bro  ">
+        <br>
+        <hr>
+        <h3>19. Loại đầu vào Thời gian </h3>
+        <p> input type="time"> người dùng chọn thời gian (không có múi giờ).
+            <br> Tùy thuộc vào sự hỗ trợ của trình duyệt, bộ chọn thời gian có thể hiển thị trong trường nhập liệu.
+        </p>
+        <label for="time">chọn-nhập time:</label>
+        <input type="time" id="time" name="time_nhập_vào:">
+        <br>
+        <hr>
+        <h3>20. Loại đầu vào Url </h3>
+        <p>Để check url xem có đúng định dạng k nhưng có vẻ cũng <b>PHÈN</b> <br>
+            chỉ check đc http và :\\ </p>
+        <label for="homepage">Trang chủ của bro:</label>
+        <input type="url" id="homepage" name="trang_chủ:">
+        <br>
+        <hr>
+        <h3>20. Loại đầu vào Tuần</h3>
+        <p> input type="week"> người dùng chọn một tuần và năm.
+            <br>Tùy thuộc vào sự hỗ trợ của trình duyệt, bộ chọn ngày có thể hiển thị trong trường nhập liệu. <br>
+            <b>Nó cho chọn bây giờ là tuần bao nhiêu trong năm! </b>
+        </p>
+        <label for="week">Tuần mấy nhỉ?:</label>
+        <input type="week" id="week" name="tuần:">
+
+    </form>
+
+
+</body>
+
+</html>
